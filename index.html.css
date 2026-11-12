@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vishnu — Personal Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #080808;
+  color: #f5f5f5;
+  font-family: 'DM Sans', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 28px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #aaa;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+/* HOME */
+
+.hero {
+  min-height: 100vh;
+  padding: 150px 8% 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eyebrow {
+  color: #888;
+  font-size: 11px;
+  letter-spacing: 5px;
+  margin-bottom: 30px;
+}
+
+.hero h1 {
+  font-size: clamp(75px, 17vw, 190px);
+  line-height: .82;
+  letter-spacing: -9px;
+  font-weight: 700;
+}
+
+.hero h1 span {
+  color: #888;
+}
+
+.intro {
+  max-width: 420px;
+  margin-top: 35px;
+  color: #999;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 75px;
+  color: #777;
+  font-size: 11px;
+  letter-spacing: 2px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.instagram {
+  color: white;
+  border-bottom: 1px solid #777;
+  padding-bottom: 5px;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+  padding: 110px 8%;
+  border-top: 1px solid #222;
+}
+
+.section-label {
+  color: #888;
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: clamp(38px, 7vw, 75px);
+  letter-spacing: -3px;
+  margin-bottom: 30px;
+}
+
+.section-text {
+  max-width: 650px;
+  color: #999;
+  line-height: 2;
+  font-size: 15px;
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+  align-items: center;
+}
+
+.about-photo {
+  width: 100%;
+  max-width: 420px;
+  height: 500px;
+  overflow: hidden;
+  background: #181818;
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+/* INTERESTS */
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 45px;
+}
+
+.interest {
+  border: 1px solid #292929;
+  padding: 35px;
+  min-height: 150px;
+  transition: .3s;
+}
+
+.interest:hover {
+  background: #171717;
+  transform: translateY(-4px);
+}
+
+.interest h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.interest p {
+  color: #888;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* GALLERY */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 45px;
+}
+
+.gallery-item {
+  height: 340px;
+  overflow: hidden;
+  background: #181818;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* CONTACT */
+
+.contact {
+  text-align: center;
+}
+
+.contact h2 {
+  margin-bottom: 20px;
+}
+
+.contact p {
+  color: #888;
+  line-height: 1.9;
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 30px;
+  border: 1px solid #777;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.contact-link:hover {
+  background: white;
+  color: black;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 30px 8%;
+  border-top: 1px solid #222;
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 12px;
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+  nav {
+    padding: 23px 6%;
+  }
+
+  .nav-links {
+    gap: 12px;
+    font-size: 10px;
+  }
+
+  .hero {
+    padding: 140px 6% 55px;
+  }
+
+  .hero h1 {
+    font-size: clamp(65px, 16vw, 110px);
+    letter-spacing: -5px;
+  }
+
+  .hero-bottom {
+    margin-top: 55px;
+  }
+
+  section {
+    padding: 75px 6%;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .about-photo {
+    height: 420px;
+    max-width: 100%;
+  }
+
+  .interests-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-item {
+    height: 300px;
+  }
+
+  footer {
+    padding: 25px 6%;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <div class="logo">V.</div>
+
+  <div class="nav-links">
+    <a href="#about">ABOUT</a>
+    <a href="#interests">INTERESTS</a>
+    <a href="#gallery">GALLERY</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+
+<div class="hero">
+
+  <div class="eyebrow">
+    PERSONAL PORTFOLIO — 2026
+  </div>
+
+  <h1>
+    VISHNU<span>.</span>
+  </h1>
+
+  <p class="intro">
+    Just a soul exploring life, chasing dreams
+    and creating a story worth remembering.
+    Always learning. Always discovering.
+  </p>
+
+  <div class="hero-bottom">
+    <span>THRISSUR, KERALA — INDIA</span>
+
+    <a class="instagram"
+       href="https://www.instagram.com/ieek.0v/"
+       target="_blank">
+       INSTAGRAM ↗ @ieek.0v
+    </a>
+  </div>
+
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="section-label">01 — ABOUT ME</div>
+
+  <div class="about-grid">
+
+    <div>
+      <h2>A little about me.</h2>
+
+      <p class="section-text">
+        Hey, I'm Vishnu.
+
+        I'm someone who loves exploring the world,
+        discovering new ideas and learning something
+        new every day.
+
+        From peaceful mountains to creative technology,
+        I find inspiration in the little things around me.
+
+        This website is a small reflection of who I am
+        and the journey I'm creating.
+      </p>
+    </div>
+
+    <div class="about-photo">
+      <img src="vishnu.jpg" alt="Vishnu portrait">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- INTERESTS -->
+
+<section id="interests">
+
+  <div class="section-label">02 — WHAT I LOVE</div>
+
+  <h2>My interests.</h2>
+
+  <p class="section-text">
+    A few things that inspire my curiosity
+    and make life interesting.
+  </p>
+
+  <div class="interests-grid">
+
+    <div class="interest">
+      <h3>01. Travel</h3>
+      <p>Exploring new places, cultures and experiences.</p>
+    </div>
+
+    <div class="interest">
+      <h3>02. Mountains</h3>
+      <p>Finding inspiration in nature and peaceful landscapes.</p>
+    </div>
+
+    <div class="interest">
+      <h3>03. Technology</h3>
+      <p>Learning, experimenting and creating new things.</p>
+    </div>
+
+    <div class="interest">
+      <h3>04. Creativity</h3>
+      <p>Turning ideas and imagination into something real.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+  <div class="section-label">03 — VISUAL DIARY</div>
+
+  <h2>Moments & places.</h2>
+
+  <p class="section-text">
+    A collection of scenes and places
+    that inspire me.
+  </p>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-item">
+      <img
+        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1000"
+        alt="Mountain landscape">
+    </div>
+
+    <div class="gallery-item">
+      <img
+        src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1000"
+        alt="Golden sunset">
+    </div>
+
+    <div class="gallery-item">
+      <img
+        src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1000"
+        alt="Forest landscape">
+    </div>
+
+    <div class="gallery-item">
+      <img
+        src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1000"
+        alt="Cinematic nature">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+  <div class="section-label">04 — CONNECT</div>
+
+  <h2>Let's connect.</h2>
+
+  <p>
+    Thanks for taking the time to explore my little corner
+    of the internet.
+  </p>
+
+  <a class="contact-link"
+     href="https://www.instagram.com/ieek.0v/"
+     target="_blank">
+     FIND ME ON INSTAGRAM ↗
+  </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <span>© 2026 VISHNU</span>
+  <span>MADE WITH CURIOSITY.</span>
+</footer>
+
+</body>
+</html>
+
